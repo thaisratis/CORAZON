@@ -1,8 +1,10 @@
 # CORAZON
 
+CORAZON tool is find at: https://corazon.integrativebioinformatics.me/
+
 This repository is just a backup, to see the CORAZON tool original code and run it locally access: https://gitlab.com/integrativebioinformatics/corazon
 
-All the steps below are also in the gitlab link
+All the steps below are also at the gitlab link.
 
 ## Requisites
 
