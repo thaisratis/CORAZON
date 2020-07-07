@@ -1,0 +1,176 @@
+<html>
+	<head>
+			<title>CORAZON</title>
+			<link href = "style.css" rel = "stylesheet" type = "text/css">
+			<link rel = "stylesheet" href = "node_modules/alertifyjs/build/css/alertify.css" />
+			<link rel = "stylesheet" href = "node_modules/alertifyjs/build/css/themes/default.css" />
+			<link rel="shortcut icon" type="image/png" href="Images/favicon.png"/>
+			<link href="modal.css" rel = "stylesheet" type = "text/css">
+	</head>
+
+	<body>
+		<div id = "main">
+
+			<header id = "Logo"> 
+			<img src = "Images/Logo.png" alt = "Logo" class = "center">
+			</header>			
+
+			<div id = "Linha">
+
+				<a href = 'index.html'>				
+				<div id = "Home" class = "menu">
+					Home			
+				</div>
+				</a>
+
+				<a href = 'clusters.html'>
+				<div id = "Clusters" class = "menu">
+					Cluster			
+				</div>
+				</a>		
+
+				<a href = 'normalizations.html'>
+				<div id = "Normalizations" class = "menu">
+					Normalizations
+				</div>
+				</a>
+
+
+				 <a href = 'allresults.html'>
+                                <div id = "AllResults" class = "menu">
+                                        Results
+                                </div>
+                                </a>
+		
+				<!--<a href = ''>-->
+				<a class="signupmodal" data-toggle="modal" data-target="#myModalsignup" href="">
+				<div id = "UserSignUp" class = "menu">
+					Sign Up
+							
+				</div>
+				</a>
+				<!--</a>-->
+				
+				<a class="userloginmodal" data-toggle="modal" data-target="#myModallogin" href="">
+				<div id = "UserLogin" class = "menu">
+					Login
+							
+				</div>
+				</a>
+				
+				<a href = 'documentation.html'>
+                                <div id = "Documentation" class = "menu">
+                                        Documentation
+                                </div>
+                                </a>
+
+				<a href = 'contact.html'>
+				<div id = "Contact" class = "menu">
+					Contact
+				</div>
+				</a>
+			</div>
+			
+			 <div id = "Home_text">
+
+				<p class = "home_class">
+					<strong>CORAZON</strong> is an abreviation of <strong>COR</strong>relations <strong>A</strong>nalyses <strong>Z</strong>ipper <strong>ON</strong>line, a bioinformatic tool that uses artificial intelligence to cluster genes according to their expression in tissues and also a tool to normalize databases.</br></br>				
+					This tool is composed of 3 unsupervised machine learning algorithms: Mean Shift, K-Means and Hierarchical. Unsupervised learning is the machine learning task of inferring a function to describe the hidden structure from unlabeled data. The inductor analyzes the examples provided and tries to determine if some of them can be grouped in any way, forming clusters.</br></br>
+					<strong>CORAZON</strong> also includes 8 normalization methodologies: Trimmed Mean of M-values (TMM), Median Ratio Normalization (MRN), Fragments Per Kilobase Million (FPKM), Transcripts Per Kilobase Million (TPM), Counts per million (CPM), base-2 log (log<sub>2</sub>), normalization by the sum of the instance's attributes values and normalization by the highest attribute value for each instance. Moreover, a strategy to observe the attributes influence in results was implemented.</br></br>
+					Click "Cluster" to start using <strong>CORAZON</strong>! You can submit a job as a guest, or create a user through the "Sign Up" menu, which will grant you a job table with all your previous results. For more details on the algorithms and normalizations performance, examples and <strong>CORAZON</strong> schema, check the "Documentation". Contact us if you have any questions or suggestions!</br>
+
+					
+				</p>
+
+			</div>
+			
+<!-- Modal -->
+  <div class="modal fade" id="myModalsignup" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button class="close xbut" data-dismiss="modal" title="Close">&times;</button>
+          <h2>Sign Up</h2>
+        </div>
+        <div class="modal-body">
+          <form id = 'Registration'>
+								Please, choose your username and password to create your account!</br></br>
+								Username:</br>
+								<input id = 'Login' type='text'><br/></br>
+								Password:</br>
+								<input id = 'Senha' type=password><br/></br>
+								Re-type password:</br>
+								<input id = 'Senha2' type=password><br/></br>
+								
+			
+        </div>
+        <div class="modal-footer">
+          <input id = 'Submissao' type=submit class = "submissao_signup" value = "Submit">
+		<div class = "loader" id = 'loader_submissao' style = "display:none">
+		</div>
+        </div>
+		</form>
+      </div>
+      
+    </div>
+	</div>
+			
+
+
+<!-- Modal -->
+  <div class="modal fade" id="myModallogin" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button class="close xbut" data-dismiss="modal" title="Close">&times;</button>
+          <h2>Login</h2>
+        </div>
+        <div class="modal-bodylogin">
+          <form id = 'Login2'>
+						Please, enter with your username and password!</br></br>
+						Username:</br>
+						<input id = 'Usuario' type = 'text'><br/></br>
+						Password:</br>
+						<input id = 'SenhaLogin' type = password><br/></br>
+			
+		</div>
+        <div class="modal-footer">
+          <input id = 'Submissao2' type = submit class = "submissao_login" value= "Submit">
+				<div class = "loader" id = 'loader_login' style = "display:none">
+				</div>
+        </div>
+			</form>
+      </div>
+      
+    </div>
+	</div>
+			
+			
+			
+			
+			
+		</div>
+		<footer id = "footer_home">
+                        <strong>CORAZON by Thaís Ratis, Miguel Ortega, Thaís Gaudencio and Vinicius Maracaja</br>
+                                Biodados Lab, Visio Lab and Laboratory of Integrative Bioinformatics</br>
+                                UFRN, UFMG, UFPB and UChile
+                        </strong>
+                </footer>
+
+		
+	</body>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="login.js"></script>
+	<script src="node_modules/alertifyjs/build/alertify.js"></script>
+	<script src= "registrationSCRIPT.js"></script>
+	
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	
+	
+</html>

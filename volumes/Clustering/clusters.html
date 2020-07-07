@@ -1,0 +1,384 @@
+<html>
+	<head>
+		<title>CORAZON</title>
+		<link rel = "stylesheet" href = "node_modules/alertifyjs/build/css/alertify.css" />
+        	<link rel = "stylesheet" href = "node_modules/alertifyjs/build/css/themes/default.css" />
+		<link href = "style.css" rel = "stylesheet" type = "text/css">
+		<link href="modal.css" rel = "stylesheet" type = "text/css">
+		<link rel="shortcut icon" type="image/png" href="Images/favicon.png"/>
+	</head>
+
+	<body>
+		<div id = "main">
+
+			<header id = "Logo"> 
+			<img src = "Images/Logo.png" alt = "Logo" class = "center">	
+			</header>
+			
+			 <div id = 'sair'>
+                                <button id = 'logout'>Logout</button>
+                                <div class = "loader" id = 'loader_logout' style = "display:none">
+                                </div>
+                        </div>
+			
+
+			<div id = 'Logado'>
+                        </div>
+
+	
+			
+			
+			<div id = "Linha">
+
+				<a href = 'index.html'>				
+				<div id = "Home" class = "menu">
+					Home			
+				</div>
+				</a>
+
+				<a href = 'clusters.html'>
+				<div id = "Clusters" class = "menu">
+					Cluster			
+				</div>
+				</a>		
+				
+
+                                <a href = 'normalizations.html'>
+                                <div id = "Normalizations" class = "menu">
+                                        Normalizations
+                                </div>
+                                </a>
+
+ 
+				<a href = 'allresults.html'>
+                		<div id = "AllResults" class = "menu">
+                    			Results
+                		</div>
+               			</a>
+
+
+				<a class="signupmodal" data-toggle="modal" data-target="#myModalsignup" href="">
+				<div id = "UserSignUp" class = "menu">
+					Sign Up
+							
+				</div>
+				</a>
+				
+				<a class="userloginmodal" data-toggle="modal" data-target="#myModallogin" href="">
+				<div id = "UserLogin" class = "menu">
+					Login
+							
+				</div>
+				</a>
+				
+				
+				<a href = 'documentation.html'>
+				<div id = "Documentation" class = "menu">
+					Documentation
+				</div>
+				</a>
+  
+				<a href = 'contact.html'>
+				<div id = "Contact" class = "menu">
+					Contact
+				</div>
+				</a>
+			</div>
+			
+			<div id = 'exemplo'>
+				<p><b>OBS: For those normalizations which needs the gene's length (e.g. FPKM and TPM), the 2nd column of the file will be assumed to be the transcript size (see "Data file with genes size") !</b></p>
+	                	<a href = 'Book2.txt'>
+        	           		 Data file example<br/><br/>
+                		</a>
+				<a href = 'corazon_exemplo2.txt'>
+					Data file with genes size
+				</a>
+           		 </div>
+	
+
+		<div id = "Algorithms">
+			<div id = "MeanShift">
+			
+				<h3> Mean Shift</h3>
+
+
+				<form id="form1">
+					&nbsp;&nbsp;<strong>Data file:</strong>
+					<input id="arqDados" type="file"/><br/><br/>
+					&nbsp; <strong>Normalization methods:</strong><br/>
+					<input id = "tmm" type = "checkbox">
+					<label for = "tmm"> Normalize by TMM </label></br>
+					<input id = "mrn" type = "checkbox">
+                                        <label for = "mrn"> Normalize by MRN </label></br>
+					<input id= "fpkm" type = "checkbox">
+					<label for = "fpkm"> Normalize by FPKM </label></br> 
+					<input id = "true_tpm" type = "checkbox" </label>
+					<label for = "true_tpm"> Normalize by TPM </label></br>
+					<input id = "tpm" type = "checkbox">
+				        <label for = "tpm"> Normalize by CPM </label></br>
+					<input id = "log" type = "checkbox">
+				        <label for = "log"> Compute log<sub>2</sub></label>
+
+			
+				<a class="tooltips">
+
+	                        <img class="help"  src="Images/question.png" />
+        	                <span>
+                	               0's value will be replaced by 0.000001's value!
+                       		 </span>
+                        	</a><br/>
+
+			
+
+					<input id = "normalizacao" type = "checkbox">
+					<label for = "normalizacao"> Normalize by the sum of the instance's values</label></br>
+					<input id = "normalizacao2" type = "checkbox">
+					<label for = "normalizacao2"> Normalize by the highest value of the instance</label></br></br>  
+
+				        &nbsp;&nbsp;<strong>Attributes:</strong></br>
+				        <input id = "escolha" type = "checkbox">
+				        <label for = "escolha"> Combination of all attributes -1 </label></br></br>
+
+				        &nbsp;&nbsp;<strong>Cluster All:</strong><br/>
+				        <input id="ca_true" type="radio" name="ClusterAll" value="1" checked = "checked"/>
+				        <label for="ca_true"> True </label><br/>
+				        <input id="ca_false" type="radio" name="ClusterAll" value="0"/>
+				        <label for="ca_false"> False </label><br/><br/>
+					
+					&nbsp;&nbsp;<strong>Use discretized version of points:</strong><br/>
+									
+	
+					<input id="points_true" type="radio" name="Points" value="1"/>
+                                        <label for="points_true"> True </label><br/>
+					<input id="points_false" type="radio" name="Points" value="0" checked = "checked"/>
+                                        <label for="points_false"> False </label><br/><br/>
+
+				        &nbsp;&nbsp;<strong>Bandwidth:</strong><br/>
+				        <input id="auto_bandwidth" type="radio" name="AutoBandwidth" value="1" checked = "checked"/>
+				        <label for="auto_bandwidth"> Use AutoBandwidth</label>
+					
+			<a class="tooltips">
+    
+        		<img class="help"  src="Images/question.png" />
+			<span>
+       				Data file greather than 10 instances(rows)
+    			</span>
+			</a><br/>
+					
+					<input id="auto_bandwidth_off" type="radio" name="AutoBandwidth" value="0"/>
+				        <label for="auto_bandwidth_off"> Set bandwidth manually </label>
+		 			<input id="bandwidth_value" type="number" step="0.1"/>
+				        <br/><br/>
+
+				        <input id="sub_btx" type="submit" value ="Submit" /><br/>
+					<div class = "loader" id = 'loader_meanshift' style = "display:none">
+		                        </div>
+
+				</form>
+
+				
+			</div>
+		        
+			
+			<div id = "K-Means">
+
+				<h3> K-Means </h3>
+				<form id="kmeans">
+
+				        &nbsp;&nbsp;<strong>Data file:</strong>
+				        <input id="valores" type="file"/><br/><br/>
+					&nbsp;<strong> Normalization methods:</strong><br/>
+					<input id = "tmm2" type = "checkbox">
+                                        <label for = "tmm2"> Normalize by TMM </label></br>
+					<input id = "mrn2" type = "checkbox">
+                                        <label for = "mrn2"> Normalize by MRN </label></br>
+					<input id = "fpkm2" type = "checkbox">
+					<label for "fpkm2"> Normalize by FPKM</label></br>
+					<input id = "true_tpm2" type = "checkbox">
+					<label id = "true_tpm2"> Normalize by TPM </label></br>
+				        <input id = "tpm2" type = "checkbox">
+				        <label for = "tpm2"> Normalize by CPM</label></br>
+					<input id = "log2" type = "checkbox">
+				        <label for = "log2"> Compute log<sub>2</sub></label>
+				 <a class="tooltips">
+
+                                <img class="help"  src="Images/question.png" />
+                                <span>
+                                       0's value will be replaced by 0.000001's value!
+                                 </span>
+                                </a><br/>
+
+					<input id = "normalizacao3" type = "checkbox">
+                                        <label for = "normalizacao3"> Normalize by the sum of the instance's values</label></br>
+                                        <input id = "normalizacao4" type = "checkbox">
+                                        <label for = "normalizacao4"> Normalize by the highest value of the instance</label></br></br>
+
+				        &nbsp;&nbsp;<strong>Attributes:</strong></br>
+				        <input id = "escolha2" type = "checkbox">
+				        <label for = "escolha2"> Combination of all attributes -1 </label></br></br>
+
+				        &nbsp;&nbsp;<strong>Number of clusters:</strong><br/>
+				        <input id="cluster" type="number" step="1"/><br/><br/>
+				        &nbsp;&nbsp;<strong>Max Iteration:</strong><br/>
+				        <input id = "max_iter" type = "number" value = "300" step="1"/><br/><br/>
+
+				        <input id = 'runKmeans' type = submit value = "Submit">
+					<div class = "loader" id = 'loader_kmeans' style = "display:none">
+		                        </div>
+
+				</form>
+			</div>
+			
+			<div id = "Hierarchical">
+
+				<h3> Hierarchical </h3>
+				<form id="Hierarquico">
+
+				        &nbsp;&nbsp;<strong>Data file:</strong>
+				        <input id="Arquivo" type="file"/><br/><br/>
+					&nbsp;<strong> Normalization methods:</strong><br/>
+					<input id = "tmm3" type = "checkbox">
+                                        <label for = "tmm3"> Normalize by TMM </label></br>
+					<input id = "mrn3" type = "checkbox">
+                                        <label for = "mrn3"> Normalize by MRN </label></br>
+					<input id = "fpkm3" type = "checkbox">
+					<label for = "fpkm3"> Normalize by FPKM </label></br>
+					<input id = "true_tpm3" type = "checkbox">
+					<label for = "true_tpm3"> Normalize by TPM </label></br>
+				        <input id = "tpm3" type = "checkbox">
+				        <label for = "tpm3"> Normalize by CPM </label></br>
+					<input id = "log3" type = "checkbox">
+				        <label for = "log3"> Compute log<sub>2</sub> </label>
+				 <a class="tooltips">
+
+                                <img class="help"  src="Images/question.png" />
+                                <span>
+                                       0's value will be replaced by 0.000001's value!
+                                 </span>
+                                </a><br/>
+
+					<input id = "normalizacao5" type = "checkbox">
+                    <label for = "normalizacao5"> Normalize by the sum of the instance's values</label></br>
+                    <input id = "normalizacao6" type = "checkbox">
+                    <label for = "normalizacao6"> Normalize by the highest value of the instance</label></br></br>
+
+				        &nbsp;&nbsp;<strong>Attributes:</strong></br>
+				        <input id = "escolha3" type = "checkbox">
+				        <label for = "escolha3"> Combination of all attributes -1 </label></br></br>
+						
+					&nbsp;&nbsp;<strong>Linkage:</strong><br/>
+				        <select name="linkage" id = "linkage">
+							<option value="1">Ward.D</option>
+							<option value="2">Ward.D2</option>
+							<option value="3">Single</option>
+							<option value="4">Complete</option>
+							<option value="5">Average</option>
+							<option value="6">Mcquitty</option>
+							<option value="7">Median</option>
+							<option value="8">Centroid</option>
+						</select><br/><br/>
+						
+				        &nbsp;&nbsp;<strong>Number of clusters:</strong><br/>
+				        <input id="cluster2" type="number" step="1"/><br/><br/>
+				       
+
+				        <input id = 'runHierarchical' type = submit value = "Submit">
+					<div class = "loader" id = 'loader_Hierarchical' style = "display:none">
+		                        </div>
+
+				</form>
+			</div>
+			
+			
+		</div>
+			
+			<!-- Modal -->
+  <div class="modal fade" id="myModalsignup" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button class="close xbut" data-dismiss="modal" title="Close">&times;</button>
+          <h2>Sign Up</h2>
+        </div>
+        <div class="modal-body">
+          <form id = 'Registration'>
+								Please, choose your username and password to create your account!</br></br>
+								Username:</br>
+								<input id = 'Login' type='text'><br/></br>
+								Password:</br>
+								<input id = 'Senha' type=password><br/></br>
+								Re-type password:</br>
+								<input id = 'Senha2' type=password><br/></br>
+								
+			
+        </div>
+        <div class="modal-footer">
+          <input id = 'Submissao' type=submit class = "submissao_signup" value = "Submit">
+		<div class = "loader" id = 'loader_submissao' style = "display:none">
+		</div>
+        </div>
+		</form>
+      </div>
+      
+    </div>
+	</div>
+			
+
+
+<!-- Modal -->
+  <div class="modal fade" id="myModallogin" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button class="close xbut" data-dismiss="modal" title="Close">&times;</button>
+          <h2>Login</h2>
+        </div>
+        <div class="modal-bodylogin">
+          <form id = 'Login2'>
+						Please, enter with your username and password!</br></br>
+						Username:</br>
+						<input id = 'Usuario' type = 'text'><br/></br>
+						Password:</br>
+						<input id = 'SenhaLogin' type = password><br/></br>
+			
+		</div>
+        <div class="modal-footer">
+          <input id = 'Submissao2' type = submit class = "submissao_login" value= "Submit">
+				<div class = "loader" id = 'loader_login' style = "display:none">
+				</div>
+        </div>
+			</form>
+      </div>
+      
+    </div>
+	</div>
+				
+			
+		</div>
+	
+		<footer id = "footer">
+                        <strong>CORAZON by Thaís Ratis, Miguel Ortega, Thaís Gaudencio and Vinicius Maracaja</br>
+                                Biodados Lab, Visio Lab and Laboratory of Integrative Bioinformatics</br>
+                                UFRN, UFMG, UFPB and UChile
+                        </strong>
+                </footer>
+
+	</body>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="login.js"></script>
+	<script src="node_modules/alertifyjs/build/alertify.js"></script>
+	<script src= "registrationSCRIPT.js"></script>
+	<script src = "script.js"></script>
+	
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	
+	
+</html>
+                
+
+

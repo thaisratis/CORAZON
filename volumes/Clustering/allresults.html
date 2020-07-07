@@ -1,0 +1,212 @@
+<html>
+	<head>
+		<title>CORAZON</title>
+		<link rel = "stylesheet" href = "node_modules/alertifyjs/build/css/alertify.css" />
+	        <link rel = "stylesheet" href = "node_modules/alertifyjs/build/css/themes/default.css" />
+		<link href = "style.css" rel = "stylesheet" type = "text/css">
+		<link href="modal.css" rel = "stylesheet" type = "text/css">
+		<link rel="shortcut icon" type="image/png" href="Images/favicon.png"/>
+	</head>
+
+	<body>
+		<div id = "main">
+
+			<header id = "Logo"> 
+			<img src = "Images/Logo.png" alt = "Logo" class = "center">	
+			</header>
+			
+			 <div id = 'sair'>
+                                <button id = 'logout'>Logout</button>
+                                <div class = "loader" id = 'loader_logout' style = "display:none">
+                                </div>
+                        </div>
+			
+
+			<div id = 'Logado'>
+                        </div>
+
+	
+			
+			
+			<div id = "Linha">
+
+				<a href = 'index.html'>				
+				<div id = "Home" class = "menu">
+					Home			
+				</div>
+				</a>
+
+				<a href = 'clusters.html'>
+				<div id = "Clusters" class = "menu">
+					Cluster			
+				</div>
+				</a>		
+
+                                <a href = 'normalizations.html'>
+                                <div id = "Normalizations" class = "menu">
+                                        Normalizations
+                                </div>
+                                </a>
+				
+				 <a href = 'allresults.html'>
+                                <div id = "AllResults" class = "menu">
+                                        Results
+                                </div>
+                                </a>
+
+
+				<a class="signupmodal" data-toggle="modal" data-target="#myModalsignup" href="">
+				<div id = "UserSignUp" class = "menu">
+					Sign Up
+							
+				</div>
+				</a>
+				
+				<a class="userloginmodal" data-toggle="modal" data-target="#myModallogin" href="">
+				<div id = "UserLogin" class = "menu">
+					Login
+							
+				</div>
+				</a>
+				
+				
+				<a href = 'documentation.html'>
+				<div id = "Documentation" class = "menu">
+					Documentation
+				</div>
+				</a>
+  
+				<a href = 'contact.html'>
+				<div id = "Contact" class = "menu">
+					Contact
+				</div>
+				</a>
+			</div>
+			
+
+			
+				
+			<div id = 'Guestdiv'>
+			<form id = 'Guest'>
+                                Guest Job ID or Normalization ID:
+                                <input id = 'GuestJob' type = 'text'>
+                                <input id = 'Sub' type = submit value= "Submit">
+				<div class = "loader" id = 'loader_guestjob' style = "display:none">
+	                        </div>
+
+
+                       </form>
+		       </div>
+			
+			
+                        <div id = 'GuestResult'>
+                        </div>
+
+			<div id = 'GuestImg1'>
+                        </div>
+					        
+			<div id = 'GuestImg2'>
+                        </div>
+		
+			<div id = 'GuestImgPCA'>
+                        </div>
+	
+			
+			<!-- Modal -->
+  <div class="modal fade" id="myModalsignup" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button class="close xbut" data-dismiss="modal" title="Close">&times;</button>
+          <h2>Sign Up</h2>
+        </div>
+        <div class="modal-body">
+          <form id = 'Registration'>
+								Please, choose your username and password to create your account!</br></br>
+								Username:</br>
+								<input id = 'Login' type='text'><br/></br>
+								Password:</br>
+								<input id = 'Senha' type=password><br/></br>
+								Re-type password:</br>
+								<input id = 'Senha2' type=password><br/></br>
+								
+			
+        </div>
+        <div class="modal-footer">
+          <input id = 'Submissao' type=submit class = "submissao_signup" value = "Submit">
+		<div class = "loader" id = 'loader_submissao' style = "display:none">
+		</div>
+        </div>
+		</form>
+      </div>
+      
+    </div>
+	</div>
+			
+
+
+<!-- Modal -->
+  <div class="modal fade" id="myModallogin" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button class="close xbut" data-dismiss="modal" title="Close">&times;</button>
+          <h2>Login</h2>
+        </div>
+        <div class="modal-bodylogin">
+          <form id = 'Login2'>
+						Please, enter with your username and password!</br></br>
+						Username:</br>
+						<input id = 'Usuario' type = 'text'><br/></br>
+						Password:</br>
+						<input id = 'SenhaLogin' type = password><br/></br>
+			
+		</div>
+        <div class="modal-footer">
+          <input id = 'Submissao2' type = submit class = "submissao_login" value= "Submit">
+				<div class = "loader" id = 'loader_login' style = "display:none">
+				</div>
+        </div>
+			</form>
+      </div>
+      
+    </div>
+	</div>
+		<div id = 'Result'>
+                        </div>
+
+                        <div id = 'Result2'>
+                        </div>			
+			
+			 <div id = 'Result3'>
+                        </div>
+
+			
+		</div>
+	
+		<footer id = "footer" class = 'index_footer'>
+                        <strong>CORAZON by Thaís Ratis, Miguel Ortega, Thaís Gaudencio and Vinicius Maracaja</br>
+                                Biodados Lab, Visio Lab and Laboratory of Integrative Bioinformatics</br>
+                                UFRN, UFMG, UFPB and UChile
+                        </strong>
+                </footer>
+
+	</body>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="login.js"></script>
+	<script src="node_modules/alertifyjs/build/alertify.js"></script>
+	<script src= "registrationSCRIPT.js"></script>
+	<script src = "scriptresults.js"></script>
+	
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	
+	
+</html>
+                
+
+

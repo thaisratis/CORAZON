@@ -1,0 +1,207 @@
+<html>
+	<head>
+			<title>CORAZON</title>
+			<link href = "style.css" rel = "stylesheet" type = "text/css">
+			<link rel = "stylesheet" href = "node_modules/alertifyjs/build/css/alertify.css" />
+			<link rel = "stylesheet" href = "node_modules/alertifyjs/build/css/themes/default.css" />
+			<link href="modal.css" rel = "stylesheet" type = "text/css">
+			<link rel="shortcut icon" type="image/png" href="Images/favicon.png"/>
+	</head>
+
+	<body>
+		<div id = "main">
+
+			<header id = "Logo"> 
+			<img src = "Images/Logo.png" alt = "Logo" class = "center">
+			</header>
+			<div id = "Linha">
+
+				<a href = 'index.html'>				
+				<div id = "Home" class = "menu">
+					Home			
+				</div>
+				</a>
+
+				<a href = 'clusters.html'>
+				<div id = "Clusters" class = "menu">
+					Cluster			
+				</div>
+				</a>		
+
+                                <a href = 'normalizations.html'>
+                                <div id = "Normalizations" class = "menu">
+                                        Normalizations
+                                </div>
+                                </a>
+
+				 <a href = 'allresults.html'>
+                                <div id = "AllResults" class = "menu">
+                                        Results
+                                </div>
+                                </a>
+
+		
+				<a class="signupmodal" data-toggle="modal" data-target="#myModalsignup" href="">
+				<div id = "UserSignUp" class = "menu">
+					Sign Up
+							
+				</div>
+				</a>
+				
+				<a class="userloginmodal" data-toggle="modal" data-target="#myModallogin" href="">
+				<div id = "UserLogin" class = "menu">
+					Login
+							
+				</div>
+				</a>
+				
+				
+				<a href = 'documentation.html'>
+				<div id = "Documentation" class = "menu">
+					Documentation
+				</div>
+				</a>
+				<a href = 'contact.html'>
+				<div id = "Contact" class = "menu">
+					Contact
+				</div>
+				</a>
+			</div>
+				
+				
+			
+			<div id = "all_normalizations">
+		
+
+                                <h1> Normalizations </h1>
+
+				<div id = 'obs'>
+					<p><b>OBS: For those normalizations which needs the gene's length (e.g. FPKM and TPM), the 2nd column of the file will be assumed to be the transcript size (see "Data file with genes size") ! </b></p>
+			         </div>
+				
+                                <form id="form_normalizations">
+                                        &nbsp;&nbsp;<strong>Data file:</strong>
+                                        <input id="arq_Dados" type="file"/><br/><br/>
+                                        &nbsp; <strong>Normalization methods:</strong><br/>
+					<input id = "tmm_normalization" type = "checkbox">
+					<label for = "tmm_normalization"> Normalize by TMM </label></br>
+					<input id = "mrn_normalization" type = "checkbox">
+                                        <label for = "mrn_normalization"> Normalize by MRN </label></br>
+                                        <input id= "fpkm_normalization" type = "checkbox">
+                                        <label for = "fpkm_normalization"> Normalize by FPKM </label></br>
+                                        <input id = "true_tpm_normalization" type = "checkbox" </label>
+                                        <label for = "true_tpm_normalization"> Normalize by TPM </label></br>
+                                        <input id = "tpm_normalization" type = "checkbox">
+                                        <label for = "tpm_normalization"> Normalize by CPM </label></br>
+                                        <input id = "log_normalization" type = "checkbox">
+                                        <label for = "log_normalization"> Compute log<sub>2</sub></label>
+
+
+                                <a class="tooltips">
+
+                                <img class="help"  src="Images/question.png" />
+                                <span>
+                                       0's value will be replaced by 0.000001's value!
+                                 </span>
+                                </a><br/>
+
+
+
+                                        <input id = "normalizacao_normalization" type = "checkbox">
+                                        <label for = "normalizacao_normalization"> Normalize by the sum of the instance's values</label></br>
+                                        <input id = "normalizacao2_normalization" type = "checkbox">
+                                        <label for = "normalizacao2_normalization"> Normalize by the highest value of the instance</label></br></br>
+
+                                        <input id = 'runNormalization' type = submit value = "Submit">
+                                        <div class = "loader" id = 'loader_Normalization' style = "display:none">
+                                        </div>
+
+
+				</form>
+			</div>	
+			
+<!-- Modal -->
+<div class="modal fade" id="myModalsignup" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button class="close xbut" data-dismiss="modal" title="Close">&times;</button>
+          <h2>Sign Up</h2>
+        </div>
+        <div class="modal-body">
+          <form id = 'Registration'>
+								Please, choose your username and password to create your account!</br></br>
+								Username:</br>
+								<input id = 'Login' type='text'><br/></br>
+								Password:</br>
+								<input id = 'Senha' type=password><br/></br>
+								Re-type password:</br>
+								<input id = 'Senha2' type=password><br/></br>
+								
+			
+			</div>
+			<div class="modal-footer">
+				<input id = 'Submissao' type=submit class = "submissao_signup" value = "Submit">
+				<div class = "loader" id = 'loader_submissao' style = "display:none">
+				</div>
+			</div>
+		</form>
+      </div>
+      
+    </div>
+</div>
+			
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModallogin" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button class="close xbut" data-dismiss="modal" title="Close">&times;</button>
+          <h2>Login</h2>
+        </div>
+        <div class="modal-bodylogin">
+          <form id = 'Login2'>
+						Please, enter with your username and password!</br></br>
+						Username:</br>
+						<input id = 'Usuario' type = 'text'><br/></br>
+						Password:</br>
+						<input id = 'SenhaLogin' type = password><br/></br>
+			
+		</div>
+			<div class="modal-footer">
+				<input id = 'Submissao2' type = submit class = "submissao_login" value= "Submit">
+				<div class = "loader" id = 'loader_login' style = "display:none">
+				</div>
+			</div>
+		</form>
+      </div>
+      
+    </div>
+</div>
+			
+			
+		</div>
+		<footer id = "footer_bottom">
+                        <strong>CORAZON by Thaís Ratis, Miguel Ortega, Thaís Gaudencio and Vinicius Maracaja</br>
+                                Biodados Lab, Visio Lab and Laboratory of Integrative Bioinformatics</br>
+                                UFRN, UFMG, UFPB and UChile
+                        </strong>
+                </footer>
+
+	</body>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="login.js"></script>
+	<script src = "normalizations.js"></script>
+	<script src="node_modules/alertifyjs/build/alertify.js"></script>
+	<script src= "registrationSCRIPT.js"></script>
+	
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	
+</html>
