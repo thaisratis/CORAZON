@@ -1,0 +1,37 @@
+version: "3.4"
+
+services:
+
+    apache_corazon:
+        build: ./build/apache
+        container_name: corazon_webserver
+        ports:
+                - "80:80"
+        volumes:
+            - /tmp
+            - ./volumes/clustering:/var/www/html
+        depends_on:
+            - db_corazon
+        networks:
+            - db
+        restart: always
+        command: /bin/bash -c "sleep 60 && /var/www/html/meanshift_execute & > /dev/null && apache2-foreground"
+
+    db_corazon:
+        build: ./build/database
+        container_name: corazon_db
+        restart: always
+        volumes:
+            - /tmp
+            - ./volumes/database:/var/lib/mysql:rw
+        environment:
+            - MYSQL_RANDOM_ROOT_PASSWORD=YES
+            - MYSQL_USER=${DBUSER}
+            - MYSQL_PASSWORD=${DBPASS}
+            - MYSQL_DATABASE=${DBNAME}
+        networks:
+            - db
+        restart: always
+
+networks:
+    db:

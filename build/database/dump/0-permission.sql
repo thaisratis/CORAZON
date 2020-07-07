@@ -1,0 +1,2 @@
+GRANT FILE ON *.* TO 'biodados'@'%';
+FLUSH PRIVILEGES;

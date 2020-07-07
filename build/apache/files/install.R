@@ -1,0 +1,6 @@
+install.packages('ggplot2', repos="https://cloud.r-project.org")
+install.packages('plotly', repos="https://cloud.r-project.org")
+install.packages('reshape2', repos="https://cloud.r-project.org")
+install.packages('devtools', repos="https://cloud.r-project.org")
+library(devtools)
+install_github("hadley/ggplot2")

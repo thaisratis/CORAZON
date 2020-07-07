@@ -1,0 +1,46 @@
+version: "3.4"
+
+services:
+
+    webserver:
+        image: corazon_webserver
+        volumes:
+            - corazon-tmp:/tmp
+            - corazon-data:/var/www/html
+        networks:
+            - proxy
+            - db
+        command: /bin/bash -c "sleep 60 && /var/www/html/meanshift_execute & > /dev/null && apache2-foreground"
+        deploy:
+            labels:
+                - traefik.port=80
+                - traefik.docker.network=proxy
+                - traefik.frontend.rule=Host:${FQDN}
+            placement:
+                constraints: [node.role==manager]
+
+    db:
+        image: corazon_db
+        volumes:
+            - corazon-tmp:/tmp
+            - corazon-db:/data
+        environment:
+            - MYSQL_RANDOM_ROOT_PASSWORD=YES
+            - MYSQL_USER=${DBUSER}
+            - MYSQL_PASSWORD=${DBPASS}
+            - MYSQL_DATABASE=${DBNAME}
+        networks:
+            - db
+
+networks:
+    db:
+    proxy:
+        external: true
+        
+volumes:
+    corazon-data:
+        external: true
+    corazon-db:
+        external: true
+    corazon-tmp:
+        external: true
