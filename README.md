@@ -1,5 +1,7 @@
 # CORAZON
 
+CORAZON is an abreviation of CORrelations Analyses Zipper ONline, a bioinformatic tool that uses artificial intelligence to cluster genes according to their expression in tissues and also a tool to normalize databases.
+
 CORAZON tool is find at: https://corazon.integrativebioinformatics.me/
 
 This repository is just a backup, to see the CORAZON tool original code and run it locally access: https://gitlab.com/integrativebioinformatics/corazon
